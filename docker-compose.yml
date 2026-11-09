@@ -1,0 +1,14 @@
+services:
+  voxellive-relay:
+    build: .
+    container_name: voxellive-relay
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - voxellive-cloud-data:/data
+
+volumes:
+  voxellive-cloud-data:
